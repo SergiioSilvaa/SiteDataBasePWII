@@ -84,8 +84,19 @@
 	<input class="input-size" type="password" name="senhaAdm" value="
 	<?php if(isset($senhaAdm)){echo $senhaAdm;}
 		else{echo '';} ?>"></br>
-	<input class="btn-send" type="submit" name="submit" value="Enviar"></br>
+	<input class="btn-send" type="submit" name="submit" value="
+	<?php
+		if(!isset($metodo)){echo'Inserir';}
+		else if($metodo == 'alterar'){echo 'Alterar';}
+		else{echo 'Excluir';}?>
+	"></br>
 </div>
+  	<input type="hidden" name="id" value="
+	  <?php
+		 if(isset($id)){echo $id;}
+		 else{echo'';} 
+	  ?>
+	  ">
 	</form>
 	</div>
 </body>

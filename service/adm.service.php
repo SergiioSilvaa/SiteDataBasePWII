@@ -40,5 +40,17 @@ public function recuperarAdministrador($id){
   return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
 
+public function atualizar(){
+  $query='update administrador set
+          nomeAdm = :nomeAdm, emailAdm = :emailAdm, senhaAdm = :senhaAdm
+          where idAdm = :id;';
+  $stmt = $this->conexao->prepare($query);
+  $stmt->bindValue(':idAdm',$this->administrador->__get('idAdm') );
+  $stmt->bindValue(':nomeAdm',$this->administrador->__get('nomeAdm') );
+  $stmt->bindValue(':emailAdm',$this->administrador->__get('emailAdm') );
+  $stmt->bindValue(':senhaAdm',$this->administrador->__get('senhaAdm') );
+  $stmt->execute();
+}
+
 }
 ?>

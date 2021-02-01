@@ -40,5 +40,19 @@ else if($acao == 'recuperarAdministrador'){
   $administradorService = new AdmService($conexao, $administrador);
   $administrador = $administradorService->recuperarAdministrador($id);
 
+
+  //Atualizar dados do Administrador
+
+}else if($acao == 'atualizar'){
+  $administrador = new Adm();
+  $administrador->__set('idAdm',$_POST['id']);
+  $administrador->__set('nomeAdm',$_POST['nomeAdm']);
+  $administrador->__set('emailAdm',$_POST['emailAdm']);
+  $administrador->__set('senhaAdm',$_POST['senhaAdm']);
+
+  $conexao = new Conexao();
+  $administradorService = new AdmService($conexao, $administrador);
+  $administradorService->atualizar();
+
 }
 ?>
